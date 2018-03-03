@@ -1,0 +1,6 @@
+body {
+    background-color: tan;
+}
+.jumbotron {
+    background-image:url(../pictures);
+}
