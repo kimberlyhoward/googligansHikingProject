@@ -50,8 +50,8 @@
             <div class="col-sm-3">
                 <form class="searchForm">
                     <div class="form-group">
-                        <label for="description">Search Trail by Keyword</label>
-                        <input type="number" id="description" placeholder="Enter Keyword">
+                        <label for="numberResults">Number of Results</label>
+                        <input type="number" id="description" placeholder="Number of Desired Results">
                     </div>
                 </form>
             </div>
@@ -74,6 +74,41 @@
                 puts in their current address.</div>
         </div>
         <div class="row">
+            <div class="col-sm-4">
+                <form class="trailName">
+                    <div class="form-group">
+                        <label for="trailName">Trail Name</label>
+                        <input type="text" id="trailName" placeholder="Trail Name">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form class="submitReview">
+                    <div class="form-group">
+                        <label for="starRating">Rate a trail</label>
+                        <input type="number" id="starRating" placeholder="Rate 0-4 Stars">
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <form class="comments">
+                    <div class="form-group">
+                        <label for="comments">Rate a trail</label>
+                        <input type="text" id="comments" placeholder="Type comments">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="submitReview">
+                    <div class="form-group">
+                        <input id="submitReview" type="submit" value="Submit Review">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-sm-12">
                 <table class="table reviewTable" id="userReviews">
                     <tr class="tableHeaders" id="tRHeader">
@@ -89,7 +124,8 @@
             </div>
         </div>
     </div>
-
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 </body>
+
 
 </html>
