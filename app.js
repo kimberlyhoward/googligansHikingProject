@@ -1,13 +1,18 @@
 var x = document.getElementsByTagName("body");
+
+// firebase info
 var config = {
     apiKey: "AIzaSyDlQ2kWC8Qw9S5xG-R2ZxMjv1BlWELtEiM",
     authDomain: "bigclassproject-bc504.firebaseapp.com",
     databaseURL: "https://bigclassproject-bc504.firebaseio.com",
     storageBucket: "bigclassproject-bc504.appspot.com",
-  };
-  firebase.initializeApp(config);
-  var dataPoint = firebase.database();
-  var imageURL = "";
+};
+
+firebase.initializeApp(config);
+var dataPoint = firebase.database();
+var imageURL = "";
+
+// function and vaiables to pull in geo coordinates
 var browserLatitude = 0;
 var browserLongitude = 0;
 function getLocation() {
@@ -28,6 +33,7 @@ function showPosition(position) {
 getLocation();
 
 
+// variables for querying hiking project
 var radius = 0;
 var zipCode = 0;
 var length = 0;
@@ -45,11 +51,9 @@ function hikeProjCall() {
         for (let i = 0; i < hikeResponse.trails.length; i++) {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
-            var imageURL = response.trails[i].imgSmallMed;
+            var imageURL = hikeResponse.trails[i].imgSmallMed;
             console.log(imageURL);
-            dataPoint.ref().push({
-                imageURL: imageURL
-            });
+
 
             var newRow = ("<tr>" +
                 "<td>" + hikeResponse.trails[i].name + "</td>" +
@@ -58,6 +62,10 @@ function hikeProjCall() {
                 "<td>" + aLink + "</td>" +
                 "</tr>");
             $("#trailinfo").append(newRow);
+
+            dataPoint.ref().push({
+                imageURL: imageURL
+            });
         }
 
     });
@@ -83,6 +91,7 @@ function zipCodeCall() {
 
 
 // start of weather forecast
+// START HERE JORDAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function weatherCall() {
     var weatherURL = "";
 }
@@ -96,13 +105,13 @@ $("#submit").on("click", function (event) {
     length = $("#length").val().trim();
     keyword = $("#description").val().trim();
     hikeProjCall();
-    zipCodeCall();
+    // zipCodeCall();
     weatherCall();
-    });
-    dataPoint.ref().on("child_added", function(snapshot) {
-        console.log(snapshot.val().imageURL);
-        var hikeImg = $("<img>");
-        hikeImg.attr("src", snapshot.val().imageURL );
-        hikeImg.attr("alt", "Image from the Hike");
-        $("#imageDiv").html(hikeImg);
-    });
+});
+dataPoint.ref().on("child_added", function (snapshot) {
+    console.log(snapshot.val().imageURL);
+    var hikeImg = $("<img>");
+    hikeImg.attr("src", snapshot.val().imageURL);
+    hikeImg.attr("alt", "Image from the Hike");
+    $("#imageDiv").html(hikeImg);
+});
