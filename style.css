@@ -22,8 +22,14 @@ h3 {
     padding: 5px;
 }
 #submit{
-    background-color:rgb(59,116,146);
+    padding: 10px;
 }
 #submitReview {
-    background-color:rgb(59,116,146);
+    padding: 10px;
+}
+.form-group {
+    margin: auto;
+    border: 5px;
+    border-style: groove;
+    border-radius: 8px;
 }
