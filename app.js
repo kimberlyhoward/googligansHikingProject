@@ -57,10 +57,12 @@ $("#submit").on("click", function (event) {
             "<td>" + response.trails[i].name + "</td>" +
             "<td>" + response.trails[i].difficulty + "</td>" +
             "<td>" + response.trails[i].summary + "</td>" +
-            "<td>" + response.trails[i].trailLink + "</td>" +
+            "<td>" + aLink + "</td>" +
             "</tr>");
             $("#trailinfo").append(newRow);
         }
+
+    });
 
     });
     dataPoint.ref().on("child_added", function(snapshot) {
