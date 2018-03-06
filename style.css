@@ -2,14 +2,28 @@ body {
     background-color:rgb(252,234,160);
     width: 100%;
     color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
 }
 .jumbotron {
     background-image: url(http://www.theoutdoorsource.com/media/catalog/category/backpacking-header-web-image.jpg);
     text-align: center; 
     background-size: 100%;
+    font-family: 'Times New Roman', Times, serif;
 }
 .container {
     width: 75%;
     margin: 0 auto;
     clear: both;
+}
+h3 {
+    background-color: rgb(166,180,191);
+    color: black;
+    padding: 5px;
+}
+#submit{
+    background-color:rgb(59,116,146);
+}
+#submitReview {
+    background-color:rgb(59,116,146);
 }
