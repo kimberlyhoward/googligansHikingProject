@@ -26,7 +26,7 @@ var zipCode = 0;
 var length = 0;
 var keyword = "";
 
-$("#number").on("click", function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
@@ -40,6 +40,18 @@ $("#number").on("click", function (event) {
         method: "GET"
     }).then(function(response){
         console.log(response.trails);
+        for (let i = 0; i < response.trails.length; i++) {
+            var trailLink = "<a href='"+ response.trails[i].url +"'>Trail Link</a>"
+
+            var newRow = ("<tr>" +
+            "<td>" + response.trails[i].name + "</td>" +
+            "<td>" + response.trails[i].difficulty + "</td>" +
+            "<td>" + response.trails[i].summary + "</td>" +
+            "<td>" + response.trails[i]. + trailLink + "</td>" +
+            "</tr>");
+            $("#trailinfo").append(newRow);
+        }
+
     });
 
 
