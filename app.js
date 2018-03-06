@@ -26,7 +26,7 @@ var zipCode = 0;
 var length = 0;
 var keyword = "";
 
-$("#number").on("click", function (event) {
+$("#submit").on("click", function (event) {
     event.preventDefault();
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
