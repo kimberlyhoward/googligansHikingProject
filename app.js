@@ -50,6 +50,7 @@ $("#submit").on("click", function (event) {
         for (let i = 0; i < response.trails.length; i++) {
             var trailLink = "<a href='"+ response.trails[i].url +"'>Trail Link</a>"
             var imageURL = response.trails[i].imgSmallMed;
+            console.log(imageURL);
             dataPoint.ref().push({
                 imageURL: imageURL
             });
@@ -70,6 +71,5 @@ $("#submit").on("click", function (event) {
         var hikeImg = $("<img>");
         hikeImg.attr("src", snapshot.val().imageURL );
         hikeImg.attr("alt", "Image from the Hike");
-        $('#hikeImage').html(hikeImg);
+        $("#imageDiv").html(hikeImg);
     });
-});
