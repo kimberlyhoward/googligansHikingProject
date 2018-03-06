@@ -1,6 +1,13 @@
 var x = document.getElementsByTagName("body");
-
-
+var config = {
+    apiKey: "AIzaSyDlQ2kWC8Qw9S5xG-R2ZxMjv1BlWELtEiM",
+    authDomain: "bigclassproject-bc504.firebaseapp.com",
+    databaseURL: "https://bigclassproject-bc504.firebaseio.com",
+    storageBucket: "bigclassproject-bc504.appspot.com",
+  };
+  firebase.initializeApp(config);
+  var dataPoint = firebase.database();
+  var imageURL = "";
 var browserLatitude = 0;
 var browserLongitude = 0;
 function getLocation() {
@@ -38,6 +45,11 @@ function hikeProjCall() {
         for (let i = 0; i < hikeResponse.trails.length; i++) {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
+            var imageURL = response.trails[i].imgSmallMed;
+            console.log(imageURL);
+            dataPoint.ref().push({
+                imageURL: imageURL
+            });
 
             var newRow = ("<tr>" +
                 "<td>" + hikeResponse.trails[i].name + "</td>" +
@@ -76,6 +88,7 @@ function weatherCall() {
 }
 
 
+
 $("#submit").on("click", function (event) {
     event.preventDefault();
     radius = $("#radius").val().trim();
@@ -85,5 +98,11 @@ $("#submit").on("click", function (event) {
     hikeProjCall();
     zipCodeCall();
     weatherCall();
-
-});
+    });
+    dataPoint.ref().on("child_added", function(snapshot) {
+        console.log(snapshot.val().imageURL);
+        var hikeImg = $("<img>");
+        hikeImg.attr("src", snapshot.val().imageURL );
+        hikeImg.attr("alt", "Image from the Hike");
+        $("#imageDiv").html(hikeImg);
+    });
