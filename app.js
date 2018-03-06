@@ -72,7 +72,7 @@ function zipCodeCall() {
 
 // start of weather forecast
 function weatherCall() {
-    var weatherURL = 
+    var weatherURL = "";
 }
 
 
@@ -84,5 +84,6 @@ $("#submit").on("click", function (event) {
     keyword = $("#description").val().trim();
     hikeProjCall();
     zipCodeCall();
+    weatherCall();
 
 });
