@@ -1,9 +1,15 @@
 body {
-    background-color: tan;
+    background-color:rgb(252,234,160);
     width: 100%;
+    color: black;
 }
 .jumbotron {
-    background-image: url(https://static1.squarespace.com/static/55004a69e4b0354d9f1fa258/t/55199365e4b0c6d76aa1ff3f/1427739494540/?format=750w);
+    background-image: url(http://www.theoutdoorsource.com/media/catalog/category/backpacking-header-web-image.jpg);
     text-align: center; 
     background-size: 100%;
+}
+.container {
+    width: 75%;
+    margin: 0 auto;
+    clear: both;
 }
