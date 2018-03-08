@@ -12,25 +12,27 @@ firebase.initializeApp(config);
 var dataPoint = firebase.database();
 var imageURL = "";
 
-// function and vaiables to pull in geo coordinates
-var browserLatitude = 0;
-var browserLongitude = 0;
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
+//****this was script to use browsers lat/lon but no longer needed. worked to hard to delete this business though haha****
 
-function showPosition(position) {
-    browserLatitude = position.coords.latitude;
-    browserLongitude = position.coords.longitude;
-    console.log("lati " + browserLatitude);
-    console.log("long " + browserLongitude);
-}
+// var browserLatitude = 0;
+// var browserLongitude = 0;
+// function getLocation() {
+//     if (navigator.geolocation) {
+//         navigator.geolocation.getCurrentPosition(showPosition);
+//     } else {
+//         console.log("Geolocation is not supported by this browser.");
+//     }
+// }
 
-getLocation();
+// function showPosition(position) {
+//     browserLatitude = position.coords.latitude;
+//     browserLongitude = position.coords.longitude;
+//     console.log("lati " + browserLatitude);
+//     console.log("long " + browserLongitude);
+// }
+// getLocation();
+
+
 
 
 // variables for querying hiking project
@@ -39,15 +41,15 @@ var zipCode = 0;
 var length = 0;
 var keyword = "";
 
-// declared function for hiking project AJAX call
+// declared function for hiking project AJAX call. this is called in the zip code converter function. 
 function hikeProjCall() {
-    hikProjURL = "https://www.hikingproject.com/data/get-trails?lat=" + browserLatitude + "&lon=" + browserLongitude + "&maxDistance=" + radius + "&key=200226856-004010f8710083cf453ba71820f6e7f4";
+    hikProjURL = "https://www.hikingproject.com/data/get-trails?lat=" + inputLatitude + "&lon=" + inputLongitude + "&maxDistance=" + radius + "&key=200226856-004010f8710083cf453ba71820f6e7f4";
 
     $.ajax({
         url: hikProjURL,
         method: "GET"
     }).then(function (hikeResponse) {
-        console.log(hikeResponse.trails);
+        // console.log(hikeResponse.trails);
         for (let i = 0; i < hikeResponse.trails.length; i++) {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
@@ -71,7 +73,8 @@ function hikeProjCall() {
 };
 // end of function for hiking project AJAX call
 
-
+var inputLatitude = 0;
+var inputLongitude = 0;
 
 // start of function to grab zip code
 function zipCodeCall() {
@@ -82,8 +85,11 @@ function zipCodeCall() {
         method: "GET"
 
     }).then(function (zipResponse) {
-        console.log(zipResponse.lat);
-        console.log(zipResponse.lng);
+        inputLatitude = zipResponse.lat;
+        inputLongitude = zipResponse.lng;
+
+        // hiking call placed here so that zip code conversion to lat/lon will load first and the GET call for hiking project will work.
+        hikeProjCall();
     });
 };
 // end of function to grab zip code
@@ -92,26 +98,62 @@ function zipCodeCall() {
 // start of weather forecast
 // START HERE JORDAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function weatherCall() {
-    var weatherURL = "http://api.wunderground.com/api/bc660f73e252f941/geolookup/conditions/q/"+ zipCode +".json";
+    var weatherURL = "http://api.wunderground.com/api/bc660f73e252f941/forecast/q/" + zipCode + ".json"
+
 
     $.ajax({
         url: weatherURL,
         method: "GET"
 
-    }).then(function(weatherResponse){
-        console.log(weatherResponse);
+    }).then(function (weatherResponse) {
+        for (let i = 0; i < weatherResponse.forecast.simpleforecast.forecastday.length
+            ; i++) {
+
+            // day
+            var day = weatherResponse.forecast.simpleforecast.forecastday[i].date.weekday;
+            // text to use for weather icon
+            var iconText = weatherResponse.forecast.simpleforecast.forecastday[i].icon;
+            // weather icon URL
+            var iconURL = "https://icons.wxug.com/i/c/k/" + iconText + ".gif";
+            // high temp
+            var highTemp = weatherResponse.forecast.simpleforecast.forecastday[i].high.fahrenheit;
+            // low temp
+            var lowTemp = weatherResponse.forecast.simpleforecast.forecastday[i].low.fahrenheit;
+
+
+            // this is where the forecast divs are assembled
+            var weatherDiv = $("<div> class = 'weatherDiv'");
+            console.log("1st" + weatherDiv);
+            // day of the week is appended
+            var dayText = $("<p>").text(day);
+            weatherDiv.append(dayText);
+            console.log("2nd" + weatherDiv);
+            // weather icon is appended
+            var iconImage = $("<img>").attr("src", iconURL);
+
+            weatherDiv.append(iconImage);
+            console.log("3rd" + weatherDiv);
+            // high and low temps are appended
+            var tempsHighLow = $("<p>").text(highTemp+ "/" + lowTemp);
+            weatherDiv.append(tempsHighLow);
+            console.log("4th" + weatherDiv);
+            
+            // newly created weather div is appended to the page
+            $(".weatherArea").append(weatherDiv);
+
+
+        }
     });
 }
 
 
-
+// event handler that triggers the 3 GET calls
 $("#submit").on("click", function (event) {
     event.preventDefault();
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
     length = $("#length").val().trim();
     keyword = $("#description").val().trim();
-    hikeProjCall();
     zipCodeCall();
     weatherCall();
 });
