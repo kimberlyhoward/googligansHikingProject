@@ -1,5 +1,5 @@
 var x = document.getElementsByTagName("body");
-
+$(document).ready(function() {
 // firebase info
 var config = {
     apiKey: "AIzaSyDlQ2kWC8Qw9S5xG-R2ZxMjv1BlWELtEiM",
@@ -10,6 +10,9 @@ var config = {
 
 firebase.initializeApp(config);
 var dataPoint = firebase.database();
+var date = "mm/dd/yyyy";
+var comments = "";
+var trailName = "";
 var imageURL = "";
 
 // function and vaiables to pull in geo coordinates
@@ -51,7 +54,7 @@ function hikeProjCall() {
         for (let i = 0; i < hikeResponse.trails.length; i++) {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
-            var imageURL = hikeResponse.trails[i].imgSmallMed;
+            // var imageURL = hikeResponse.trails[i].imgSmallMed;
             console.log(imageURL);
 
 
@@ -63,9 +66,9 @@ function hikeProjCall() {
                 "</tr>");
             $("#trailinfo").append(newRow);
 
-            dataPoint.ref().push({
-                imageURL: imageURL
-            });
+            // dataPoint.ref().push({
+            //     imageURL: imageURL
+            // });
         }
 
     });
@@ -108,10 +111,44 @@ $("#submit").on("click", function (event) {
     // zipCodeCall();
     weatherCall();
 });
-dataPoint.ref().on("child_added", function (snapshot) {
-    console.log(snapshot.val().imageURL);
-    var hikeImg = $("<img>");
-    hikeImg.attr("src", snapshot.val().imageURL);
-    hikeImg.attr("alt", "Image from the Hike");
-    $("#imageDiv").html(hikeImg);
+$("#submitReview").on("click", function() {
+    event.preventDefault();
+    var userComments = $("#comments").val().trim();
+    var reviewDate = $("#reviewDate").val();
+    var trailName = $("#trailName").val().trim();
+    dataPoint.ref().push({
+        userComments: userComments,
+        reviewDate: reviewDate,
+        trailName: trailName,
+    });
+    console.log(trailName, reviewDate, userComments);
+//    dataPoint.ref().on("child_added", function (snapshot) {
+//     console.log(snapshot.val().imageURL);
+//     var hikeImg = $("<img>");
+//     hikeImg.attr("src", snapshot.val().imageURL);
+//     hikeImg.attr("alt", "Image from the Hike");
+//     $("#imageDiv").html(hikeImg);
 });
+dataPoint.ref().on("child_added", function (snapshot) {
+    console.log(snapshot.val().userComments);
+    trailName = (snapshot.val().trailName);
+    reviewDate = (snapshot.val().reviewDate);
+    userComments = (snapshot.val().userComments);
+    var reviewRow = ("<tr>" +
+                "<td>" + trailName + "</td>" +
+                "<td>" + reviewDate + "</td>" +
+                "<td>" + userComments + "</td>" +
+                "</tr>");
+            $("#loadComments").append(reviewRow);
+});
+});
+
+// dataPoint.ref().on("child_added", function (snapshot) {
+//     console.log(snapshot.val().userComments);
+//     var reviewRow = ("<tr>" +
+//                 "<td>" + trailName + "</td>" +
+//                 "<td>" + reviewDate + "</td>" +
+//                 "<td>" + userComments + "</td>" +
+//                 "</tr>");
+//             $("#loadComments").append(reviewRow);
+// });
