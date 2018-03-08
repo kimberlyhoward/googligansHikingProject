@@ -1,9 +1,35 @@
 body {
-    background-color: tan;
+    background-color:rgb(252,234,160);
     width: 100%;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
 }
 .jumbotron {
-    background-image: url(https://static1.squarespace.com/static/55004a69e4b0354d9f1fa258/t/55199365e4b0c6d76aa1ff3f/1427739494540/?format=750w);
+    background-image: url(http://www.theoutdoorsource.com/media/catalog/category/backpacking-header-web-image.jpg);
     text-align: center; 
     background-size: 100%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.container {
+    width: 75%;
+    margin: 0 auto;
+    clear: both;
+}
+h3 {
+    background-color: rgb(166,180,191);
+    color: black;
+    padding: 5px;
+}
+#submit{
+    padding: 5px;
+}
+#submitReview {
+    padding: 5px;
+}
+.form-group {
+    margin: auto;
+    border: 5px;
+    border-style: groove;
+    border-radius: 8px;
 }
