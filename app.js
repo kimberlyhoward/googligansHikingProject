@@ -52,7 +52,6 @@ function hikeProjCall() {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
             var imageURL = hikeResponse.trails[i].imgSmallMed;
-            console.log(imageURL);
 
 
             var newRow = ("<tr>" +
@@ -93,7 +92,15 @@ function zipCodeCall() {
 // start of weather forecast
 // START HERE JORDAN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 function weatherCall() {
-    var weatherURL = "";
+    var weatherURL = "http://api.wunderground.com/api/bc660f73e252f941/geolookup/conditions/q/"+ zipCode +".json";
+
+    $.ajax({
+        url: weatherURL,
+        method: "GET"
+
+    }).then(function(weatherResponse){
+        console.log(weatherResponse);
+    });
 }
 
 
@@ -105,11 +112,10 @@ $("#submit").on("click", function (event) {
     length = $("#length").val().trim();
     keyword = $("#description").val().trim();
     hikeProjCall();
-    // zipCodeCall();
+    zipCodeCall();
     weatherCall();
 });
 dataPoint.ref().on("child_added", function (snapshot) {
-    console.log(snapshot.val().imageURL);
     var hikeImg = $("<img>");
     hikeImg.attr("src", snapshot.val().imageURL);
     hikeImg.attr("alt", "Image from the Hike");
