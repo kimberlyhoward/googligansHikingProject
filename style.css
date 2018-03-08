@@ -1,22 +1,24 @@
 body {
     background-color: black;
     width: 100%;
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold; 
+    font-size: 15px;
 }
 .jumbotron {
     background-image: url(https://clintlosee.com/supergreenlizard/wp-content/uploads/2014/08/A-Moment-of-Wonder-Utah-Landscape-Photography.jpg);
     text-align: center; 
     background-size: 100%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Acme', sans-serif;
+    font-weight: bold;
     color: black;
 }
 .container {
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     clear: both;
     color: white;
+    border-radius: 8px;
 }
 h3 {
     color: white;
@@ -37,4 +39,6 @@ h3 {
 input {
     background-color:rgb(227, 230, 241);
      color: black;
+     border-radius: 5px;
     }
+
