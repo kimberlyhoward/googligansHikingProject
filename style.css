@@ -1,35 +1,55 @@
 body {
-    background-color:rgb(252,234,160);
+    background-color: black;
     width: 100%;
-    color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold; 
+    font-size: 15px;
 }
 .jumbotron {
-    background-image: url(http://www.theoutdoorsource.com/media/catalog/category/backpacking-header-web-image.jpg);
+    background-image: url(https://clintlosee.com/supergreenlizard/wp-content/uploads/2014/08/A-Moment-of-Wonder-Utah-Landscape-Photography.jpg);
     text-align: center; 
     background-size: 100%;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Acme', sans-serif;
+    font-weight: bold;
+    color: black;
 }
 .container {
-    width: 75%;
+    width: 80%;
     margin: 0 auto;
     clear: both;
+    color: white;
+    border-radius: 8px;
 }
 h3 {
-    background-color: rgb(166,180,191);
-    color: black;
+    color: white;
     padding: 5px;
 }
 #submit{
     padding: 5px;
+    color: black;
 }
 #submitReview {
     padding: 5px;
+    color: black;
 }
-.form-group {
-    margin: auto;
-    border: 5px;
-    border-style: groove;
+::placeholder {
+    color: rgb(85, 83, 83);
+    opacity: 1;
+}
+input {
+    background-color:rgb(227, 230, 241);
+     color: black;
+     border-radius: 5px;
+    }
+
+
+.box {
+    width: 30%;
+    border: 8px;
+    margin: 0 auto;
+    clear: both;
+    color: white;
     border-radius: 8px;
+    align-content: center;
+    text-align: center;
 }

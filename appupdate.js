@@ -1,4 +1,5 @@
 var x = document.getElementsByTagName("body");
+$(document).ready(function() {
 var config = {
     apiKey: "AIzaSyDlQ2kWC8Qw9S5xG-R2ZxMjv1BlWELtEiM",
     authDomain: "bigclassproject-bc504.firebaseapp.com",
@@ -7,6 +8,9 @@ var config = {
   };
   firebase.initializeApp(config);
   var dataPoint = firebase.database();
+  var date = "mm/dd/yyyy";
+  var comments = "";
+  var trailName = "";
   var imageURL = "";
 var browserLatitude = 0;
 var browserLongitude = 0;
@@ -106,3 +110,25 @@ $("#submit").on("click", function (event) {
         hikeImg.attr("alt", "Image from the Hike");
         $("#imageDiv").html(hikeImg);
     });
+    $("#submitReview").on("click", function() {
+        event.preventDefault();
+        var userComments = $("#comments").val().trim();
+        var reviewDate = $("#reviewDate").val();
+        var trailName = $("#trailName").val().trim();
+        dataPoint.ref().push({
+            userComments: userComments,
+            reviewDate: reviewDate,
+            trailName: trailName,
+        });
+        console.log(trailName, reviewDate, userComments);
+    });
+    dataPoint.ref().on("child_added", function (snapshot) {
+        console.log(snapshot.val().userComments);
+        var reviewRow = ("<tr>" +
+                    "<td>" + trailName + "</td>" +
+                    "<td>" + reviewDate + "</td>" +
+                    "<td>" + userComments + "</td>" +
+                    "</tr>");
+                $("#loadComments").append(newRow);
+    });
+});
