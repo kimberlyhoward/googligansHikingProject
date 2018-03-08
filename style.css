@@ -42,3 +42,14 @@ input {
      border-radius: 5px;
     }
 
+
+.box {
+    width: 30%;
+    border: 8px;
+    margin: 0 auto;
+    clear: both;
+    color: white;
+    border-radius: 8px;
+    align-content: center;
+    text-align: center;
+}
