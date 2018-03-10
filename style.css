@@ -7,12 +7,13 @@ body {
 }
 
 .jumbotron {
-    background-image: url(https://clintlosee.com/supergreenlizard/wp-content/uploads/2014/08/A-Moment-of-Wonder-Utah-Landscape-Photography.jpg);
+    background-image: url(https://1366x768wallpaper.com/2015/10/14/on-the-hike-to-hiilawe-falls-in-hawaii-wallpaper.jpg);
     text-align: center; 
     background-size: 100%;
     font-family: 'Acme', sans-serif;
     font-weight: bolder;
     color: black;
+    padding-bottom: 10%;
 }
 #primaryHeader {
     font-size: 600%;
@@ -32,22 +33,24 @@ h3 {
 #submit{
     padding: 5px;
     color: black;
+    background-color: rgb(22,79,22);
 }
 #submitReview {
     padding: 5px;
     color: black;
+    background-color: rgb(22,79,22);
 }
 ::placeholder {
-    color: rgb(85, 83, 83);
+    color: black;
     opacity: 1;
 }
 input {
-    background-color:rgb(227, 230, 241);
+    background-color: rgb(75, 133, 75);
      color: black;
      border-radius: 5px;
     }
 textarea {
-    background-color:rgb(227, 230, 241);
+    background-color:  rgb(75, 133, 75);
     color: black;
     border-radius: 5px;
 }
