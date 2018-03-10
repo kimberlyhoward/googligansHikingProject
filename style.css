@@ -63,3 +63,22 @@ textarea {
     align-content: center;
     text-align: center;
 }
+
+#sortOptions {
+    background-color:rgb(227, 230, 241);
+     color: black;
+     border-radius: 5px;
+    }
+
+.weatherArea {
+    text-align: center;
+}
+
+.weatherDiv {
+    float: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 25%;
+    box-sizing: border-box;
+
+}
