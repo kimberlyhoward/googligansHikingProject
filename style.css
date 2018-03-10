@@ -4,15 +4,19 @@ body {
     font-family: 'Lato', sans-serif;
     font-size: 15px;
 }
+
 .jumbotron {
     background-image: url(https://clintlosee.com/supergreenlizard/wp-content/uploads/2014/08/A-Moment-of-Wonder-Utah-Landscape-Photography.jpg);
     text-align: center; 
     background-size: 100%;
     font-family: 'Acme', sans-serif;
-    font-weight: bold;
+    font-weight: bolder;
     color: black;
-    font-size: 50px;
 }
+#primaryHeader {
+    font-size: 600%;
+}
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -57,4 +61,23 @@ textarea {
     border-radius: 8px;
     align-content: center;
     text-align: center;
+}
+
+#sortOptions {
+    background-color:rgb(227, 230, 241);
+     color: black;
+     border-radius: 5px;
+    }
+
+.weatherArea {
+    text-align: center;
+}
+
+.weatherDiv {
+    float: left;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 25%;
+    box-sizing: border-box;
+
 }
