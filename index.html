@@ -16,21 +16,21 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">Placeholder for mission statement</div>
-            <div class="col-sm-6" id="imageDiv">Image will load here</div>
+            <!-- <div class="col-sm-6">Placeholder for mission statement</div>
+            <div class="col-sm-6" id="imageDiv">Image will load here</div> -->
         </div>
         <div class="row">
             <div class="col-sm-12">Empty Div right now, but will populate with our Hiking Map Automatically on page load based on geolocation</div>
         </div>
-        <h3>What type of trail would you like to hike?</h3>
+        <h3>Let's Find a Trail!</h3>
         <div class="row">
             <div class="col-sm-3">
                 <form class="searchForm">
                     <div class="form-group">
-                        <label for="radius">Radius</label>
+                        <label for="radius">How Far Away? (Miles)</label>
 
                         <br>
-                        <input type="number" id="radius" placeholder="Enter Desired Radius">
+                        <input type="number" id="radius" max= "200" placeholder="Max 200">
                     </div>
                 </form>
             </div>
@@ -41,29 +41,28 @@
 
                         <br>
 
-                        <input type="number" id="zipCode" maxlength="7" placeholder="Enter Zip Code">
+                        <input type="number" id="zipCode" maxlength="7" placeholder="5 Digit Please">
                     </div>
                 </form>
             </div>
             <div class="col-sm-3">
                 <form class="searchForm">
                     <div class="form-group">
-                        <label for="length">Trail Length</label>
-
+                        <label for="length">Trail Length (Optional)</label>
                         <br>
-
-                        <input type="number" id="length" placeholder="Desired Max Trail Length">
+                        <input type="number" id="length" placeholder="Minimum Trail Length">
                     </div>
                 </form>
             </div>
             <div class="col-sm-3">
                 <form class="searchForm">
                     <div class="form-group">
-                        <label for="numberResults">Number of Results</label>
-
+                        <label for="resultsSorting">Sort By</label>
                         <br>
-
-                        <input type="number" id="description" placeholder="Number of Desired Results">
+                        <select class="form-control" id="sortOptions">
+                            <option>quality</option>
+                            <option>distance</option>
+                        </select>
                     </div>
                 </form>
             </div>
@@ -78,15 +77,36 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12">Placeholder for Google Map that will load when page loads and use geolocation to load immediate area. User can
-                then use this to get directions to trail head.</div>
+            <div class="col-sm-12">
+                <h1>Trails and Weather Conditions for <span id="cityName"></span></h1>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-12 weatherArea"></div>
         </div>
+        
         <div class="row">
             <div class="col-sm-12">
-                <h3>Comment about current trail conditions</h3>
+                <table class="table reviewTable" id="userReviews">
+                    <tr class="tableHeaders" id="tRHeader">
+                        <th>Name</th>
+                        <th>Difficulty</th>
+                        <th>Summary</th>
+                        <th>Link</th>
+                    </tr>
+                    <tbody id="trailinfo">
+                        <tr>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>Tell Us About Your Most Recent Hike!</h3>
             </div>
         </div>
         <div class="row">
@@ -129,25 +149,6 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <table class="table reviewTable" id="userReviews">
-                    <tr class="tableHeaders" id="tRHeader">
-                        <th>Name</th>
-                        <th>Difficulty</th>
-                        <th>Summary</th>
-                        <th>Link</th>
-                    </tr>
-                    <tbody id="trailinfo">
-                        <tr>
-
-                        </tr>
-
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-12">
                 <table class="table commentsTable" id="userComments">
                     <tr class="tableHeaders" id="commentsTRHeader">
                         <th>Trail Name</th>
@@ -160,6 +161,7 @@
                 </table>
             </div>
         </div>
+        
     </div>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

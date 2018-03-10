@@ -117,7 +117,8 @@ function weatherCall() {
 
 
             // this is where the forecast divs are assembled
-            var weatherDiv = $("<div> class = 'weatherDiv'");
+            var weatherDiv = $("<div>")
+            weatherDiv.addClass("weatherDiv")
             console.log("1st" + weatherDiv);
             // day of the week is appended
             var dayText = $("<p>").text(day);
@@ -148,7 +149,6 @@ $("#submit").on("click", function (event) {
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
     length = $("#length").val().trim();
-    keyword = $("#description").val().trim();
     zipCodeCall();
     weatherCall();
 });
