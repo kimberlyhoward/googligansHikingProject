@@ -70,6 +70,7 @@ textarea {
     background-color: rgb(75, 133, 75);
      color: black;
      border-radius: 5px;
+     text-transform: capitalize;
     }
 
 .weatherArea {
