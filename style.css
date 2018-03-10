@@ -15,7 +15,7 @@ body {
     padding-bottom: 10%;
 }
 #primaryHeader {
-    font-size: 600%;
+    font-size: 700%;
 }
 
 .container {
@@ -43,6 +43,7 @@ h3 {
     color: black;
     opacity: 1;
 }
+
 input {
     background-color: rgb(75, 133, 75);
      color: black;
@@ -65,9 +66,8 @@ textarea {
     align-content: center;
     text-align: center;
 }
-
 #sortOptions {
-    background-color:rgb(227, 230, 241);
+    background-color: rgb(75, 133, 75);
      color: black;
      border-radius: 5px;
     }
@@ -75,7 +75,6 @@ textarea {
 .weatherArea {
     text-align: center;
 }
-
 .weatherDiv {
     float: left;
     padding-left: 5%;
