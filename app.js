@@ -157,11 +157,15 @@ $("#submitReview").on("click", function() {
     var userComments = $("#comments").val().trim();
     var reviewDate = $("#reviewDate").val();
     var trailName = $("#trailName").val().trim();
+    $('#commentsRow')[0].scrollIntoView();
     dataPoint.ref().push({
         userComments: userComments,
         reviewDate: reviewDate,
         trailName: trailName,
     });
+    $('#comments').val("");
+    $('#reviewDate').val("");
+    $('#trailName').val("");
     console.log(trailName, reviewDate, userComments);
 //    dataPoint.ref().on("child_added", function (snapshot) {
 //     console.log(snapshot.val().imageURL);
