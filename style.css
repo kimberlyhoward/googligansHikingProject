@@ -32,12 +32,12 @@ h3 {
 #submit{
     padding: 5px;
     color: black;
-    background-color: rgb(22,79,22);
+    background-color: rgb(75,133,75);
 }
 #submitReview {
     padding: 5px;
     color: black;
-    background-color: rgb(22,79,22);
+    background-color: rgb(75,133,75);
 }
 ::placeholder {
     color: black;
