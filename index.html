@@ -20,6 +20,22 @@
             <div class="col-sm-12">
             <h1>Let's Find a Trail!</h1>
         </div>
+
+        <div id="radiusModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">Oops!</div>
+                    Please enter a radius under 200 miles. Thank you!
+                </div>
+            </div>
+        </div>
+        <div id="zipModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">Oops!</div>
+                    Please enter a proper zip code. Thank you!
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-sm-4">
@@ -28,7 +44,9 @@
                         <label for="radius">How Far Away? </label>
 
                         <br>
+
                         <input type="number" id="radius" maxlength="3" max= "200" placeholder="Max: 200 Miles">
+
                     </div>
                 </form>
             </div>
@@ -69,7 +87,7 @@
         <div class="row">
             <div class="col-sm-12 weatherArea"></div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-12">
                 <table class="table reviewTable" id="userReviews">
@@ -147,7 +165,7 @@
                 </table>
             </div>
         </div>
-        
+
     </div>
     <script src="bootstrap-3.3.7-dist\bootstrap-3.3.7-dist\js\bootstrap.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
