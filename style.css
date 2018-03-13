@@ -17,6 +17,7 @@ body {
 }
 #primaryHeader {
     font-size: 700%;
+    text-shadow: 2px 2px 30px #88bacd;
 }
 
 .container {
@@ -121,5 +122,12 @@ textarea {
     padding-right: 5%;
     width: 25%;
     box-sizing: border-box;
+}
 
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }

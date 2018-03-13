@@ -118,8 +118,14 @@ $("#submit").on("click", function (event) {
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
     length = $("#length").val().trim();
-    zipCodeLookup();
-    weatherCall();
+    if ( isNaN(radius)|| radius > 200 || radius < 1 || isNaN(zipCode)|| zipCode > 99999 || zipCode < 1) {
+        $("#zipModal").modal()
+
+    } else {
+        zipCodeLookup();
+        weatherCall();
+    }
+
 });
 
 $("#submitReview").on("click", function() {
