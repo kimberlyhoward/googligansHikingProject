@@ -35,11 +35,10 @@
             <div class="col-sm-4">
                 <form class="searchForm">
                     <div class="form-group">
-                        <label for="zipCode">Zip Code</label>
+                        <label for="zipCode" >Zip Code</label>
 
                         <br>
-
-                        <input type="number" maxlength="5" id="zipCode" maxlength="7" placeholder="5 Digit Please">
+                        <input type="text" pattern="[1-9]{5}" required title="5 Digit Zip Code Please" id="zipCode" maxlength="5" placeholder="5 Digit Please">
                     </div>
                 </form>
             </div>
@@ -64,7 +63,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <h1>Trails and Weather Conditions for <span id="cityName"></span></h1>
+                <h1>Weather and Trails for <span id="cityName"></span></h1>
             </div>
         </div>
         <div class="row">
@@ -128,15 +127,10 @@
             <div class="col-sm-12">
                 <form class="submitReview">
                     <div class="form-group">
-                        <input id="submitReview" type="submit" value="Submit Review">
+                        <input id="submitReview" type="submit" value="Submit">
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-4">Green: Easy Hike</div>
-            <div class="col-sm-4">Blue: Moderate Hike</div>
-            <div class="col-sm-4">Black: Difficult Hike</div>
         </div>
         <div id = "commentsRow" class="row">
             <div class="col-sm-12">
