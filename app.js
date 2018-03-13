@@ -57,6 +57,21 @@ function zipCodeLookup() {
 };
 // end of function to grab zip code
 
+// start of zip code to city converter API
+function zipCodeConverter() {
+    var zipConvertURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zipCode +"&sensor=true"
+
+    $.ajax ({
+        url: zipConvertURL,
+        method: "GET"
+    }).then(function(convertedZip){
+        var cityName = convertedZip.results["0"].address_components[1].long_name;
+
+        $("#cityName").html(cityName);
+    })
+}
+
+
 
 // start of weather forecast
 function weatherCall() {
@@ -122,6 +137,7 @@ $("#submit").on("click", function (event) {
     } else {
         zipCodeLookup();
         weatherCall();
+        zipCodeConverter();
     }
 
 });
