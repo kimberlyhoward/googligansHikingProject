@@ -16,6 +16,7 @@ body {
 }
 #primaryHeader {
     font-size: 700%;
+    text-shadow: 2px 2px 30px #88bacd;
 }
 
 .container {
@@ -32,12 +33,12 @@ h3 {
 #submit{
     padding: 5px;
     color: black;
-    background-color: rgb(22,79,22);
+    background-color: rgb(75,133,75);
 }
 #submitReview {
     padding: 5px;
     color: black;
-    background-color: rgb(22,79,22);
+    background-color: rgb(75,133,75);
 }
 ::placeholder {
     color: black;
@@ -70,6 +71,7 @@ textarea {
     background-color: rgb(75, 133, 75);
      color: black;
      border-radius: 5px;
+     text-transform: capitalize;
     }
 
 .weatherArea {
@@ -82,4 +84,12 @@ textarea {
     width: 25%;
     box-sizing: border-box;
 
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
 }
