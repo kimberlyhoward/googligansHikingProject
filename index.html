@@ -20,6 +20,22 @@
             <!-- <div class="col-sm-6">Placeholder for mission statement</div>
             <div class="col-sm-6" id="imageDiv">Image will load here</div> -->
         </div>
+        <div id="radiusModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">Oops!</div>
+                    Please enter a radius under 200 miles. Thank you!
+                </div>
+            </div>
+        </div>
+        <div id="zipModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">Oops!</div>
+                    Please enter a proper zip code. Thank you!
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12">Empty Div right now, but will populate with our Hiking Map Automatically on page load based on geolocation</div>
         </div>
@@ -31,7 +47,7 @@
                         <label for="radius">How Far Away? (Miles)</label>
 
                         <br>
-                        <input type="number" id="radius" max= "200" placeholder="Max 200">
+                        <input type="number" id="radius" max="200" placeholder="Max 200">
                     </div>
                 </form>
             </div>
@@ -79,13 +95,15 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <h1>Trails and Weather Conditions for <span id="cityName"></span></h1>
+                <h1>Trails and Weather Conditions for
+                    <span id="cityName"></span>
+                </h1>
             </div>
         </div>
         <div class="row">
             <div class="col-sm-12 weatherArea"></div>
         </div>
-        
+
         <div class="row">
             <div class="col-sm-12">
                 <table class="table reviewTable" id="userReviews">
@@ -153,7 +171,7 @@
             <div class="col-sm-4">Blue: Moderate Hike</div>
             <div class="col-sm-4">Black: Difficult Hike</div>
         </div>
-        <div id = "commentsRow" class="row">
+        <div id="commentsRow" class="row">
             <div class="col-sm-12">
 
                 <table class="table commentsTable" id="userComments">
@@ -168,7 +186,7 @@
                 </table>
             </div>
         </div>
-        
+
     </div>
     <script src="bootstrap-3.3.7-dist\bootstrap-3.3.7-dist\js\bootstrap.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
