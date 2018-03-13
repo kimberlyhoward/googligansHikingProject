@@ -1,7 +1,7 @@
 body {
     background-color: black;
     width: 100%;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Acme', sans-serif;
     font-size: 15px;
 }
 
@@ -32,12 +32,50 @@ h3 {
 #submit{
     padding: 5px;
     color: black;
-    background-color: rgb(75,133,75);
-}
+    border-top: 1px solid #97f79d;
+   background: #65d6ac;
+   background: -webkit-gradient(linear, left top, left bottom, from(#04b855), to(#65d6ac));
+   background: -webkit-linear-gradient(top, #04b855, #65d6ac);
+   background: -moz-linear-gradient(top, #04b855, #65d6ac);
+   background: -ms-linear-gradient(top, #04b855, #65d6ac);
+   background: -o-linear-gradient(top, #04b855, #65d6ac);
+   padding: 7px 15px;
+   -webkit-border-radius: 9px;
+   -moz-border-radius: 9px;
+   border-radius: 9px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: black;
+   font-size: 17px;
+   font-family: 'Acme', sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
 #submitReview {
     padding: 5px;
     color: black;
-    background-color: rgb(75,133,75);
+    border-top: 1px solid #97f79d;
+   background: #65d6ac;
+   background: -webkit-gradient(linear, left top, left bottom, from(#04b855), to(#65d6ac));
+   background: -webkit-linear-gradient(top, #04b855, #65d6ac);
+   background: -moz-linear-gradient(top, #04b855, #65d6ac);
+   background: -ms-linear-gradient(top, #04b855, #65d6ac);
+   background: -o-linear-gradient(top, #04b855, #65d6ac);
+   padding: 7px 15px;
+   -webkit-border-radius: 9px;
+   -moz-border-radius: 9px;
+   border-radius: 9px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: black;
+   font-size: 17px;
+   font-family: 'Acme', sans-serif;
+   text-decoration: none;
+   vertical-align: middle;
 }
 ::placeholder {
     color: black;
@@ -45,12 +83,12 @@ h3 {
 }
 
 input {
-    background-color: rgb(75, 133, 75);
+    background-color:#04b855;
      color: black;
      border-radius: 5px;
     }
 textarea {
-    background-color:  rgb(75, 133, 75);
+    background-color:#04b855;
     color: black;
     border-radius: 5px;
 }

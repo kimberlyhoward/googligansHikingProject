@@ -31,6 +31,7 @@ function hikeProjCall() {
         method: "GET"
     }).then(function (hikeResponse) {
         // console.log(hikeResponse.trails);
+        $("#trailinfo").html("");
         for (let i = 0; i < hikeResponse.trails.length; i++) {
             var trailLink = hikeResponse.trails[i].url;
             var aLink = "<a href='" + trailLink + "'target='_blank'>" + trailLink + "</a>";
@@ -65,9 +66,10 @@ function weatherCall() {
 
     $.ajax({
         url: weatherURL,
-        method: "GET"
+        methodz: "GET"
 
     }).then(function (weatherResponse) {
+        $(".weatherArea").html("");
         for (let i = 0; i < weatherResponse.forecast.simpleforecast.forecastday.length
             ; i++) {
 
@@ -119,6 +121,7 @@ $("#submit").on("click", function (event) {
     zipCodeLookup();
     weatherCall();
 });
+
 $("#submitReview").on("click", function() {
     event.preventDefault();
     var userComments = $("#comments").val().trim();
