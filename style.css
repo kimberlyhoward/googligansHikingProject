@@ -23,11 +23,12 @@ body {
     font-weight: bolder;
     color: black;
     padding-bottom: 10%;
-    text-shadow: 5px 5px #04b855;
+    
 }
 #primaryHeader {
     font-size: 700%;
     text-shadow: 2px 2px 30px #88bacd;
+    text-shadow: 5px 5px #04b855;
 }
 
 .container {
