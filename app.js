@@ -52,9 +52,14 @@ var inputLongitude = 0;
 
 // start of function to grab zip code
 function zipCodeLookup() {
+    if (isNaN(zipCode)|| zipCode > 99999 || zipCode < 601) {
+        $('#zipModal').modal('show')
+    } else {
         inputLatitude = test[zipCode].LAT
         inputLongitude = test[zipCode].LNG
         hikeProjCall();
+    }
+
 };
 // end of function to grab zip code
 
@@ -118,8 +123,8 @@ $("#submit").on("click", function (event) {
     radius = $("#radius").val().trim();
     zipCode = $("#zipCode").val().trim();
     length = $("#length").val().trim();
-    if ( isNaN(radius)|| radius > 200 || radius < 1 || isNaN(zipCode)|| zipCode > 99999 || zipCode < 1) {
-        $("#zipModal").modal()
+    if ( isNaN(radius)|| radius > 200 || radius < 1) {
+        $("#myModal").modal('show')
 
     } else {
         zipCodeLookup();
