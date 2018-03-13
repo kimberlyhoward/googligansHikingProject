@@ -13,6 +13,7 @@ body {
     font-weight: bolder;
     color: black;
     padding-bottom: 10%;
+    text-shadow: 5px 5px #04b855;
 }
 #primaryHeader {
     font-size: 700%;
