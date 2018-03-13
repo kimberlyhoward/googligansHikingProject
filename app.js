@@ -65,7 +65,7 @@ function zipCodeLookup() {
 
 // start of zip code to city converter API
 function zipCodeConverter() {
-    var zipConvertURL = "http://maps.googleapis.com/maps/api/geocode/json?address=" + zipCode +"&sensor=true"
+    var zipConvertURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + zipCode +"&sensor=true"
 
     $.ajax ({
         url: zipConvertURL,
@@ -108,20 +108,16 @@ function weatherCall() {
             // this is where the forecast divs are assembled
             var weatherDiv = $("<div>")
             weatherDiv.addClass("weatherDiv")
-            console.log("1st" + weatherDiv);
             // day of the week is appended
             var dayText = $("<p>").text(day);
             weatherDiv.append(dayText);
-            console.log("2nd" + weatherDiv);
             // weather icon is appended
             var iconImage = $("<img>").attr("src", iconURL);
 
             weatherDiv.append(iconImage);
-            console.log("3rd" + weatherDiv);
             // high and low temps are appended
             var tempsHighLow = $("<p>").text(highTemp+ "/" + lowTemp);
             weatherDiv.append(tempsHighLow);
-            console.log("4th" + weatherDiv);
             
             // newly created weather div is appended to the page
             $(".weatherArea").append(weatherDiv);
