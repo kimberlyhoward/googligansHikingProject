@@ -1,2 +1,1 @@
-# googligansBigProject
-Our 1st class project
+Looking for a good place to hike?  Try this!  This app uses api's to find hikes within 200 miles of a location.  It also gives information about the length and difficulty of the trail as well as the weather forecast.  
