@@ -1,1 +1,8 @@
-Looking for a good place to hike?  Try this!  This app uses api's to find hikes within 200 miles of a location.  It also gives information about the length and difficulty of the trail as well as the weather forecast.  
+#Out N Go
+
+ We used the Hiking Project API and Weather Undergroud API .  
+*Our project is for hikers to find hiking trails within 200 miles of a location. The app also includes a forecast for the weather and a level of difficulty.
+
+[Explore](https://kimberlyhoward.github.io/googligansHikingProject/)
+
+![Screen Shot](/pictures/OutNGo.PNG)
